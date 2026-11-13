@@ -24,7 +24,7 @@ assets/reference-face/
 
 ## Blender 适配建议
 
-推荐 VRM 人形角色，但格式不限于 VRM。FBX、MMD（PMX／PMD）、glTF／GLB 或 Blender 文件均可作为适配来源，核心接口是适配后可按名称和权重驱动的形态键网格。不同格式需使用对应导入方式；骨骼、材质或组合 Morph 不能直接等同于顶点形态键。基础形态键驱动不要求 Humanoid 骨架。
+本包只提供 `assets/reference-face/lumen-reference-face.blend` 这一份流明参考脸。推荐 VRM 人形角色作为适配对象；FBX、MMD（PMX／PMD）、glTF／GLB 等其他格式由用户自行导入 Blender、转换并确认形态键没有丢失。本包不提供这些格式的流明脸部副本或通用转换工具。最终接口是可按名称和权重驱动的形态键网格，基础形态键驱动不要求 Humanoid 骨架。
 
 1. 准备 Blender MCP 和可导入的带形态键参考脸，把参考脸与目标角色放进同一场景，保存原始备份。
 2. 保留目标已有形态键、相对键关系、默认值和绑定；让 AI 识别对应部位，按 `channels.json` 制定通道适配表。

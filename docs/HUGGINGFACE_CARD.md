@@ -42,7 +42,7 @@ python download_assets.py --repo AaBbcoder/LumenAct --revision df8126a2a85473522
 
 模型推理与预览在本地运行；用户自行选择的高层 LLM / TTS 可以是本地或远程服务。角色适配在 Blender 中通过 MCP 由 AI 辅助完成：分析两张脸并类比制作同名形态键，生成双模型联动面板后人工逐项修正，参见 [适配教程](docs/ADAPTING_YOUR_MODEL.md)。面板由使用者自行生成，本包不内置校准插件。`lumen-reference-face.blend` 是可直接导入 Blender 的带形态键参考脸；网页 JSON 只用于网页预览。
 
-适配目标推荐 VRM 人形角色，也可来自 FBX、MMD（PMX／PMD）、glTF／GLB 或 Blender 文件；核心要求是最终具有兼容的形态键通道和权重驱动接口，具体格式的导入与转换由使用者处理。格式来源不限于 VRM，不表示当前网页提供这些格式的通用导入功能。资源仓库已提供带完整形态键的 `lumen-reference-face.blend`。
+适配目标推荐 VRM 人形角色。资源仓库只提供带完整形态键的 `lumen-reference-face.blend`；FBX、MMD（PMX／PMD）、glTF／GLB 等其他格式的导入、转换与形态键保留由使用者自行处理，资源仓库不提供这些格式的流明脸部副本或通用转换工具。
 
 ## 授权
 
