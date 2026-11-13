@@ -34,7 +34,7 @@
 
 先让 AI 通过 MCP 读取当前场景对象列表，确认连接有效，再进行网格操作。将 Blender、导入插件和 MCP 的版本记录到适配报告中，便于复现。
 
-**当前包的准备状态：包内已有参考脸的网页专用 `avatar.json` 和 `geometry.buffer.json`，尚未附带可直接导入 Blender 的带形态键参考脸文件。完成本流程前，需要由作者补充标准参考文件，或先完成保留形态键的格式转换。** 不能将现有 JSON 改扩展名后当作 glTF 导入，也不能使用没有形态键的静态网格代替。
+**当前包的准备状态：资源仓库中的 `assets/reference-face/lumen-reference-face.blend` 是可直接导入 Blender、保留 118 个形态键的标准参考文件。** 网页专用 `avatar.json` 和 `geometry.buffer.json` 仍只用于网页预览，不能将它们改扩展名后当作 glTF 导入，也不能使用没有形态键的静态网格代替。
 
 参考脸许可见 [资源声明](../assets/reference-face/ASSET_NOTICE.md)。适配自己的模型时仍应遵守该模型自身的许可。
 

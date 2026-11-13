@@ -25,7 +25,7 @@ tags:
 
 - `models/semantic/`：RBT3-Lumen-38M-v6 语义 ONNX、配置和本地分词器。
 - `models/expression/`：97 段表演曲线、166 维原始控制列和类别、上下文目录。
-- `assets/reference-face/`：流明独立脸部参考几何、形态键、必要绑定及纹理。
+- `assets/reference-face/`：流明独立脸部参考几何、形态键、必要绑定及纹理；`lumen-reference-face.blend` 保留 118 个形态键，可直接导入 Blender。
 - `asset-manifest.json`：资源大小、SHA-256 和授权状态。
 
 当前公开流程由语义模型选择情绪类别与上下文，再读取对应表演曲线。表情部分不是第二个生成 ONNX；网页基础视线、单眉动作与普通播放过渡由独立参考代码实现，不包含主项目的私有运行时。
@@ -35,14 +35,14 @@ tags:
 下载匹配版本的 GitHub 预览器源码，在源码目录执行：
 
 ```sh
-python download_assets.py --repo AaBbcoder/LumenAct --revision a25bab58a259cb3d24fd27ef896467451ca5d6d1
+python download_assets.py --repo AaBbcoder/LumenAct --revision df8126a2a854735227ec81b7f12ab62d49a6d989
 ```
 
 脚本按源码中的发布清单校验资源，随后通过 `start_preview.bat` 或 `sh start_preview.sh` 启动本地网页。也可手动下载，保持上面的相对目录结构，覆盖到预览器根目录。
 
-模型推理与预览在本地运行；用户自行选择的高层 LLM / TTS 可以是本地或远程服务。角色适配在 Blender 中通过 MCP 由 AI 辅助完成：分析两张脸并类比制作同名形态键，生成双模型联动面板后人工逐项修正，参见 [适配教程](docs/ADAPTING_YOUR_MODEL.md)。面板由使用者自行生成，本包不内置校准插件。此流程需要可直接导入 Blender 的带形态键参考脸，当前包内自定义 JSON 不满足这一导入条件，仍需补充标准参考文件。
+模型推理与预览在本地运行；用户自行选择的高层 LLM / TTS 可以是本地或远程服务。角色适配在 Blender 中通过 MCP 由 AI 辅助完成：分析两张脸并类比制作同名形态键，生成双模型联动面板后人工逐项修正，参见 [适配教程](docs/ADAPTING_YOUR_MODEL.md)。面板由使用者自行生成，本包不内置校准插件。`lumen-reference-face.blend` 是可直接导入 Blender 的带形态键参考脸；网页 JSON 只用于网页预览。
 
-适配目标推荐 VRM 人形角色，也可来自 FBX、MMD（PMX／PMD）、glTF／GLB 或 Blender 文件；核心要求是最终具有兼容的形态键通道和权重驱动接口，具体格式的导入与转换由使用者处理。格式来源不限于 VRM，不表示当前网页提供这些格式的通用导入功能。带完整形态键的 Blender 参考脸文件将在资源整理完成后补入。
+适配目标推荐 VRM 人形角色，也可来自 FBX、MMD（PMX／PMD）、glTF／GLB 或 Blender 文件；核心要求是最终具有兼容的形态键通道和权重驱动接口，具体格式的导入与转换由使用者处理。格式来源不限于 VRM，不表示当前网页提供这些格式的通用导入功能。资源仓库已提供带完整形态键的 `lumen-reference-face.blend`。
 
 ## 授权
 

@@ -42,6 +42,6 @@ Windows 也可使用 `download_assets.bat --repo OWNER/REPOSITORY --revision COM
 
 ## 当前候选状态
 
-分项许可方案已由项目方选定，上游许可核对仍未完成。实际 GitHub / Hugging Face 仓库名称与资源版本尚未填写。当前没有上传操作；下载器可以显式指定仓库与版本，正式发布前需填好默认值。
+分项许可方案已由项目方确认。GitHub 源码仓库为 `AaBb-coder/LumenAct`，Hugging Face 资源仓库为 `AaBbcoder/LumenAct`，当前资源版本为 `df8126a2a854735227ec81b7f12ab62d49a6d989`。源码和资源均已上传；后续新增资源时应更新发布清单、SHA-256 和固定版本。
 
 当前仅更新本地目录及文档，按项目方要求暂不重新打包。已有 ZIP 不包含这次的许可和教程修改，继续编辑时以目录内容为准，确定发布后再执行打包工具。

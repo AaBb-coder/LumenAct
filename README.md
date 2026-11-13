@@ -2,7 +2,7 @@
 
 这个包是 **LumenAct 表情模型套组的本地展示页**。它只内置一个流明脸部，用来让使用者看到公开的语义选择和表演曲线效果。页面采用流明当前宣传网页的单角色仪表盘布局，不提供 Unity、Motive 或主工程依赖。
 
-源码仓库：[AaBb-coder/LumenAct](https://github.com/AaBb-coder/LumenAct)。预览器源码和文档已发布；配套资源位于 [Hugging Face 资源仓库](https://huggingface.co/AaBbcoder/LumenAct)。完整即用包和带形态键的 Blender 参考脸会在资源整理完成后补充。仅下载 GitHub 源码暂不能启动模型预览。
+源码仓库：[AaBb-coder/LumenAct](https://github.com/AaBb-coder/LumenAct)。预览器源码和文档已发布；配套资源位于 [Hugging Face 资源仓库](https://huggingface.co/AaBbcoder/LumenAct)。资源仓库包含带 118 个形态键的 `lumen-reference-face.blend`；完整即用包仍会在版本整理后补充。仅下载 GitHub 源码暂不能启动模型预览。
 
 项目作者：**B站 Lumen_流明_**。流明参考脸的基础网格由 **ぷらすわん** 制作，项目已取得相应商业使用许可；参考脸资源仍按 CC BY-NC 4.0 单独授权。
 
@@ -23,10 +23,10 @@ LumenAct 仍处于持续补充表演素材、训练与评估的早期阶段。�
 
 完整即用包将包含权重、分词器、脸部和表演曲线。取得配套资源后，首次使用本地语义模型时，运行 `install_semantic.bat` 或 `sh install_semantic.sh` 安装三个 Python 依赖，随后推理不需要再下载模型。没有安装推理依赖时，页面仍可以显示流明脸部和初始的自然放松表演。
 
-如果下载的是 GitHub 源码，需要先取得匹配的 Hugging Face 资源。资源目前为私有预发布草稿，以下命令供资源公开后使用：
+如果下载的是 GitHub 源码，需要先取得匹配的 Hugging Face 资源。资源仓库已经公开，以下命令可直接下载：
 
 ```sh
-python download_assets.py --repo AaBbcoder/LumenAct --revision a25bab58a259cb3d24fd27ef896467451ca5d6d1
+python download_assets.py --repo AaBbcoder/LumenAct --revision df8126a2a854735227ec81b7f12ab62d49a6d989
 ```
 
 发布清单已固定上述资源提交；资源公开后也可直接运行 `python download_assets.py`，省略两个参数。仓库仍为私有时，下载器无法匿名获取资源，不会读取开发机凭据。下载器只使用 Python 标准库，会校验大小和 SHA-256，跳过完整文件；下载失败不会覆盖原文件。Windows 也可用 `download_assets.bat`，macOS / Linux 用 `sh download_assets.sh`。`python download_assets.py --check` 可在离线状态检查资源完整性。
@@ -54,7 +54,7 @@ python download_assets.py --repo AaBbcoder/LumenAct --revision a25bab58a259cb3d2
 4. 让 AI 为使用者的场景生成双模型联动面板：一条滑条同步驱动两边的同名形态键，提供基线恢复、缺项提示和验收记录。
 5. 人工逐键检查不同权重的效果，只修正目标角色；之后检查组合与动态表演，保留形态键导出并接入自己的运行时。
 
-详细步骤与 AI 任务示例见 [Blender＋MCP 适配教程](docs/ADAPTING_YOUR_MODEL.md)。**当前发布材料仍需补充可直接导入 Blender、保留完整形态键的参考脸文件**；现有网页 JSON 不能直接当作 Blender 模型导入。
+详细步骤与 AI 任务示例见 [Blender＋MCP 适配教程](docs/ADAPTING_YOUR_MODEL.md)。资源仓库中的 `assets/reference-face/lumen-reference-face.blend` 是可直接导入 Blender、保留完整形态键的参考脸文件；网页 JSON 仍只用于网页预览。
 
 面板由使用者自己的 AI 在 Blender 中生成和维护，本包不内置校准插件、自动适配工具或网页校准界面。网页用于公开表情预览。
 
@@ -119,7 +119,7 @@ python download_assets.py --repo AaBbcoder/LumenAct --revision a25bab58a259cb3d2
 | 内容 | 许可与范围 |
 | --- | --- |
 | 新参考代码和文档 | MIT，见 [LICENSE](LICENSE) |
-| 语义派生权重 | 拟采用 Apache-2.0，上游模型与分词器许可核对完成前，不视为已完成对外授权 |
+| 语义模型与配套分词器 | RBT3-Lumen-38M-v6 由项目作者自行训练，按 Apache-2.0 发布 |
 | 项目有权授权的表演曲线及标签资料 | CC BY 4.0，允许商用、修改和再分发，须署名并说明修改 |
 | 项目有权授权的流明参考脸资源 | CC BY-NC 4.0，第三方仅限非商用使用，须署名并说明修改 |
 

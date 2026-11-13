@@ -67,6 +67,10 @@
     "assets/reference-face/reference.json": {
       "sha256": "5a277c4f80405c1c0e2bbe312934cea74ce0fda6635c3a6e63fd70094d038ed3",
       "bytes": 302
+    },
+    "assets/reference-face/lumen-reference-face.blend": {
+      "sha256": "b9e37acd7e54cc45181f8f5f056788ba26a4a50c483ae2d4aa7d1e055d39e822",
+      "bytes": 1929377
     }
   },
   "release_files": [
@@ -98,6 +102,7 @@
     "assets/reference-face/face_texture_0.png",
     "assets/reference-face/geometry.buffer.json",
     "assets/reference-face/reference.json",
+    "assets/reference-face/lumen-reference-face.blend",
     "models/ASSET_NOTICE.md",
     "models/expression/catalog.json",
     "models/expression/curves.f32",
@@ -118,7 +123,7 @@
     "licenses/CC-BY-NC-4.0.txt"
   ],
   "runtime": "independent reference renderer with basic camera gaze, head idle, linear curve sampling and neutral return crossfades",
-  "distribution_status": "GitHub source published; Hugging Face resources publicly released; Blender shape-key reference export pending; archives not rebuilt",
+  "distribution_status": "GitHub source published; Hugging Face resources publicly released; Blender shape-key reference included; archives not rebuilt",
   "reference_calibration_ui": false,
   "reference_role": "single facial reference shown in the local dashboard; shape-key adaptation is performed by users in Blender",
   "distribution": {
@@ -130,13 +135,13 @@
     },
     "huggingface": {
       "repo_id": "AaBbcoder/LumenAct",
-      "revision": "a25bab58a259cb3d24fd27ef896467451ca5d6d1",
+      "revision": "df8126a2a854735227ec81b7f12ab62d49a6d989",
       "repo_type": "model",
       "resource_archive": "lumenact-local-preview-huggingface.zip"
     },
     "full_archive": "lumenact-local-preview.zip",
     "resource_license": {
-      "status": "owner-confirmed resource scopes; Blender shape-key reference export pending",
+      "status": "owner-confirmed resource scopes; Blender shape-key reference included",
       "models": "models/ASSET_NOTICE.md",
       "reference_face": "assets/reference-face/ASSET_NOTICE.md",
       "selected_licenses": {
