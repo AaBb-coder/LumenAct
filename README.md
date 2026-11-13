@@ -2,7 +2,7 @@
 
 这个包是 **LumenAct 表情模型套组的本地展示页**。它只内置一个流明脸部，用来让使用者看到公开的语义选择和表演曲线效果。页面采用流明当前宣传网页的单角色仪表盘布局，不提供 Unity、Motive 或主工程依赖。
 
-源码仓库：[AaBb-coder/LumenAct](https://github.com/AaBb-coder/LumenAct)。当前先发布预览器源码和文档；Hugging Face 模型资源、匹配的固定版本地址及完整即用包尚未发布，仅下载 GitHub 源码暂不能启动模型预览。
+源码仓库：[AaBb-coder/LumenAct](https://github.com/AaBb-coder/LumenAct)。预览器源码和文档已发布；配套资源已上传至 [Hugging Face 私有预发布仓库](https://huggingface.co/AaBbcoder/LumenAct)，尚未公开，完整即用包也尚未发布。仅下载 GitHub 源码暂不能启动模型预览。
 
 ## 当前阶段
 
@@ -19,15 +19,15 @@ LumenAct 仍处于持续补充表演素材、训练与评估的早期阶段。�
 - 默认地址：<http://127.0.0.1:8766/preview/>。
 - 更换端口：`python server.py --port 8767`。
 
-完整即用包已带权重、分词器、脸部和表演曲线。首次使用本地语义模型时，运行 `install_semantic.bat` 或 `sh install_semantic.sh` 安装三个 Python 依赖，随后推理不需要再下载模型。没有安装推理依赖时，页面仍可以显示流明脸部和初始的自然放松表演。
+完整即用包将包含权重、分词器、脸部和表演曲线。取得配套资源后，首次使用本地语义模型时，运行 `install_semantic.bat` 或 `sh install_semantic.sh` 安装三个 Python 依赖，随后推理不需要再下载模型。没有安装推理依赖时，页面仍可以显示流明脸部和初始的自然放松表演。
 
-如果下载的是 GitHub 源码，需要先取得匹配的 Hugging Face 资源：
+如果下载的是 GitHub 源码，需要先取得匹配的 Hugging Face 资源。资源目前为私有预发布草稿，以下命令供资源公开后使用：
 
 ```sh
-python download_assets.py --repo OWNER/REPOSITORY --revision COMMIT_OR_TAG
+python download_assets.py --repo AaBbcoder/LumenAct --revision f0abfedef7aa55a4eb8ddc276a4687e668a4eb95
 ```
 
-请使用项目发布页提供的实际 Hugging Face 仓库和资源版本；资源仓库尚未发布，上面的 `OWNER/REPOSITORY` 与 `COMMIT_OR_TAG` 目前只是占位示例。发布清单配置完成后可省略这两个参数。下载器只使用 Python 标准库，会校验大小和 SHA-256，跳过完整文件；下载失败不会覆盖原文件。Windows 也可用 `download_assets.bat`，macOS / Linux 用 `sh download_assets.sh` 并传入相同参数。`python download_assets.py --check` 可在离线状态检查资源完整性。
+发布清单已固定上述资源提交；资源公开后也可直接运行 `python download_assets.py`，省略两个参数。仓库仍为私有时，下载器无法匿名获取资源，不会读取开发机凭据。下载器只使用 Python 标准库，会校验大小和 SHA-256，跳过完整文件；下载失败不会覆盖原文件。Windows 也可用 `download_assets.bat`，macOS / Linux 用 `sh download_assets.sh`。`python download_assets.py --check` 可在离线状态检查资源完整性。
 
 ## 页面能做什么
 

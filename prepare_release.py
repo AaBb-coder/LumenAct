@@ -55,6 +55,7 @@ def main():
             ('models/ASSET_NOTICE.md', 'models/ASSET_NOTICE.md'),
             ('assets/reference-face/ASSET_NOTICE.md', 'assets/reference-face/ASSET_NOTICE.md'),
             ('docs/ADAPTING_YOUR_MODEL.md', 'docs/ADAPTING_YOUR_MODEL.md'),
+            ('docs/FORMAT.md', 'docs/FORMAT.md'),
         ])
         resource_files.extend((name, name) for name in manifest['distribution']['resource_license']['license_files'])
         asset_manifest = {'schema': 'lumenact.assets.v1', 'artifacts': manifest['artifacts'],

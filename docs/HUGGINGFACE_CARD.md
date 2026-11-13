@@ -1,7 +1,7 @@
 ---
 license: other
 license_name: lumenact-mixed-resource-licenses
-license_link: models/ASSET_NOTICE.md
+license_link: https://huggingface.co/AaBbcoder/LumenAct/blob/main/models/ASSET_NOTICE.md
 language:
   - zh
 tags:
@@ -12,6 +12,8 @@ tags:
 ---
 
 # LumenAct · 本地表情预览资源
+
+配套源码：[AaBb-coder/LumenAct](https://github.com/AaBb-coder/LumenAct)。本仓库当前作为私有预发布草稿保存，资源来源与许可核对完成前不视为公开发行。
 
 这是供 LumenAct 本地预览器使用的配套资源仓库，不是在线推理服务，也不是可直接通过 Transformers `from_pretrained()` 加载的完整生成模型。
 
@@ -31,10 +33,10 @@ tags:
 下载匹配版本的 GitHub 预览器源码，在源码目录执行：
 
 ```sh
-python download_assets.py --repo OWNER/REPOSITORY --revision COMMIT_OR_TAG
+python download_assets.py --repo AaBbcoder/LumenAct --revision COMMIT_OR_TAG
 ```
 
-将 `OWNER/REPOSITORY` 替换为本仓库名称，`COMMIT_OR_TAG` 替换为配套资源提交或标签。脚本按源码中的发布清单校验资源，随后通过 `start_preview.bat` 或 `sh start_preview.sh` 启动本地网页。也可手动下载，保持上面的相对目录结构，覆盖到预览器根目录。
+将 `COMMIT_OR_TAG` 替换为配套资源提交或标签。仓库公开后，上述命令才可用于匿名下载；私有草稿不提供无凭据的下载访问。脚本按源码中的发布清单校验资源，随后通过 `start_preview.bat` 或 `sh start_preview.sh` 启动本地网页。也可手动下载，保持上面的相对目录结构，覆盖到预览器根目录。
 
 模型推理与预览在本地运行；用户自行选择的高层 LLM / TTS 可以是本地或远程服务。角色适配在 Blender 中通过 MCP 由 AI 辅助完成：分析两张脸并类比制作同名形态键，生成双模型联动面板后人工逐项修正，参见 [适配教程](docs/ADAPTING_YOUR_MODEL.md)。面板由使用者自行生成，本包不内置校准插件。此流程需要可直接导入 Blender 的带形态键参考脸，当前包内自定义 JSON 不满足这一导入条件，仍需补充标准参考文件。
 

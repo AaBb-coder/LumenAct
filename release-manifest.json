@@ -118,7 +118,7 @@
     "licenses/CC-BY-NC-4.0.txt"
   ],
   "runtime": "independent reference renderer with basic camera gaze, head idle, linear curve sampling and neutral return crossfades",
-  "distribution_status": "GitHub source prepared; Hugging Face resources and upstream license review pending; archives not rebuilt",
+  "distribution_status": "GitHub source published; Hugging Face resources uploaded as private draft; upstream license review and Blender reference export pending; archives not rebuilt",
   "reference_calibration_ui": false,
   "reference_role": "single facial reference shown in the local dashboard; shape-key adaptation is performed by users in Blender",
   "distribution": {
@@ -129,8 +129,8 @@
       "source_archive": "lumenact-local-preview-source.zip"
     },
     "huggingface": {
-      "repo_id": "",
-      "revision": "",
+      "repo_id": "AaBbcoder/LumenAct",
+      "revision": "f0abfedef7aa55a4eb8ddc276a4687e668a4eb95",
       "repo_type": "model",
       "resource_archive": "lumenact-local-preview-huggingface.zip"
     },
