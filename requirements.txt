@@ -1,0 +1,5 @@
+# Only local semantic inference needs these packages.
+# Facial calibration and curve playback use Python's standard library.
+numpy>=1.26,<3
+onnxruntime>=1.18,<2
+tokenizers>=0.20,<1

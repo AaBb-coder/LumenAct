@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+!.env.example
+*.log
+*.zip
+.DS_Store
+Thumbs.db
+
+# Resource payloads are distributed through Hugging Face, not ordinary Git.
+/models/semantic/
+/models/expression/
+/assets/reference-face/*
+!/assets/reference-face/ASSET_NOTICE.md
+
+# Local service profiles and interrupted resource downloads.
+*.local.json
+*.part

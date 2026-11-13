@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>流明 · Living Expression</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23e34a39'/%3E%3Cpath d='M7 7h5v5H7zm7 0h5v5h-5zm7 0h5v5h-5zM7 14h5v5H7zm7 0h5v5h-5zm7 0h5v5h-5zM7 21h5v5H7zm7 0h5v5h-5zm7 0h5v5h-5z' fill='%23fff3e6'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./preview.css?v=workbench-3">
+</head>
+<body>
+<div class="app">
+  <header class="masthead">
+    <div class="brand"><span class="brand-mark"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>流明<span class="brand-sub">EXPRESSION / ATELIER</span></span></div>
+    <div class="edition"><span class="kicker">LIVING EXPRESSION · LOCAL</span><span class="local-dot"></span><span id="runtimeStatus">本地预览运行中</span></div>
+  </header>
+  <section class="hero"><div><span class="kicker">A LIVING EXPRESSION ENGINE</span><h1>让表情，<em>活起来。</em></h1></div><p>流明脸部参考的本地展示页。<br>用户可在 Blender 中完成自己的形态键适配。</p></section>
+  <main class="layout">
+    <section class="panel stage-panel">
+      <div class="panel-head"><div><h2>流明 / LIVE EXPRESSION</h2><div class="model-badge"><i></i><span id="faceStatus">正在加载脸部参考…</span></div></div><span class="status"><i class="dot"></i><span>LOCAL PREVIEW</span></span></div>
+      <div id="preview" class="viewport" aria-label="流明实时三维面部预览"></div>
+      <div class="stage-foot"><div><strong id="currentExpression">自然放松</strong></div><div class="stage-actions"><button class="btn" data-view="front">正面</button><button class="btn" data-view="left">左侧</button><button class="btn" data-view="right">右侧</button><button class="btn" id="resetView">回正</button></div></div>
+    </section>
+    <aside class="side">
+      <section class="panel metrics">
+        <h3>引擎状态 <span>/ ENGINE STATUS</span></h3>
+        <div class="metric"><div class="metric-top"><span>公开控制维度</span><b id="vramValue">166 通道</b></div><div class="bar"><i style="--w:78%"></i></div></div>
+        <div class="metric"><div class="metric-top"><span>当前激活形态</span><b id="channelValue">0 / 166</b></div><div class="bar"><i id="channelBar" style="--w:0%"></i></div></div>
+        <div class="metric"><div class="metric-top"><span>头部运动</span><b id="conditionReadout">基础微动 · 运行中</b></div><div class="bar"><i style="--w:64%"></i></div></div>
+        <div class="metric compact"><div class="metric-top"><span>渲染模式</span><b id="windowValue">本地 WebGL</b></div></div>
+      </section>
+      <section class="panel timing-panel">
+        <div class="timing-head"><h3>实时处理 <span>/ LIVE LATENCY</span></h3><span class="timing-status">本地实测</span></div>
+        <div class="timing-grid">
+          <div class="timing-cell"><span>输出解析 <small>当前句</small></span><strong id="semanticTime">等待输入</strong></div>
+          <div class="timing-cell"><span>语义模型 <small>CPU</small></span><strong id="semanticModel">RBT3-Lumen</strong></div>
+          <div class="timing-cell"><span>表情求值 <small>每帧</small></span><strong>16.7 ms</strong></div>
+          <div class="timing-cell timing-ready"><span>首帧就绪 <small>本地</small></span><strong id="timingReady">READY</strong></div>
+        </div>
+        <div class="timing-detail"><span>浏览器渲染 <b id="fpsReadout">60 FPS</b></span><span>曲线采样 <b id="curveMeta">加载中</b></span></div>
+      </section>
+      <section class="panel telemetry">
+        <div class="cell"><strong id="fps">60</strong><span>显示帧率</span></div><div class="cell"><strong id="latency">—</strong><span>数据时效</span></div><div class="cell"><strong id="modelChannels">166</strong><span>控制维度</span></div><div class="cell"><strong id="activeChannels">0</strong><span>运动维度</span></div><div class="cell"><strong id="streamRate">60</strong><span>求值频率 / HZ</span></div><div class="cell"><div class="signal"><i></i><i></i><i></i><i></i><i></i></div><span>EXPRESSION STREAM</span></div>
+      </section>
+      <section class="panel chat">
+        <div class="panel-head"><h2>和流明聊聊 <span>/ DIALOGUE</span></h2><span id="semanticStatus" class="pill">本地模型预热中</span></div>
+        <div id="messages" class="chat-body" aria-live="polite"><div class="bubble"><small>LUMEN / READY</small>你好，我在。想聊点什么？</div></div>
+        <form id="chatForm" class="composer"><input id="chatInput" required placeholder="配置 LLM 后输入一句话"><button class="btn primary" id="sendChat">发送 ↗</button></form>
+        <details class="promo-raw"><summary>高层原文 / DIRECTOR TRACE</summary><pre id="rawAnswer">尚无回复</pre></details>
+      </section>
+    </aside>
+  </main>
+  <details class="services panel"><summary><strong>LLM / TTS 配置</strong><span class="muted">接口可选，密钥由用户自行管理</span><span>展开设置 ↗</span></summary>
+    <form id="serviceForm" class="settings"><label>LLM Endpoint<input id="llmEndpoint" type="url" placeholder="https://example.com/v1/chat/completions"></label><label>LLM Model<input id="llmModel" placeholder="模型名称"></label><label>LLM API Key<input id="llmKey" type="password"></label><label>TTS Endpoint<input id="ttsEndpoint" type="url" placeholder="https://example.com/v1/audio/speech"></label><label>TTS Model<input id="ttsModel"></label><label>TTS Voice<input id="ttsVoice"></label><label>TTS API Key<input id="ttsKey" type="password"></label><div class="check-options"><label><input id="ttsEnabled" type="checkbox">启用 TTS</label><label><input id="rememberKeys" type="checkbox">保存密钥</label></div><button id="saveServices" type="button" class="btn">保存配置</button></form>
+  </details>
+  <footer><span>OPEN EXPRESSION / COMMUNITY BUILT</span><span>FACE REFERENCE · BLENDER ADAPTATION · LOCAL SHOWCASE</span></footer>
+</div>
+<script type="module" src="./app.js?v=face-directives-10"></script>
+</body>
+</html>

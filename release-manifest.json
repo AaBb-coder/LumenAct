@@ -1,0 +1,158 @@
+{
+  "schema": "lumenact.release.v1",
+  "variant": "minimal-reference-runtime",
+  "included": [
+    "isolated facial reference",
+    "semantic ONNX and tokenizer",
+    "authored expression curve spans",
+    "public labels and channel definitions",
+    "independent reference player",
+    "basic camera gaze, head idle and neutral playback with crossfades",
+    "user-configured LLM/TTS adapters",
+    "public reference prompt and independent left/right brow controls",
+    "verified public asset downloader and allowlisted release builder"
+  ],
+  "excluded": [
+    "source project code",
+    "capture mapping",
+    "behavior tuning",
+    "motion graph scheduling",
+    "private gaze policies and procedural blinking",
+    "inertial transitions",
+    "mouth composition",
+    "hair dynamics",
+    "Unity muscle-to-bone solver tables",
+    "private service settings"
+  ],
+  "curve_clip_count": 97,
+  "curve_channel_count": 166,
+  "reference_adjustable_channels": 112,
+  "artifacts": {
+    "models/semantic/config.json": {
+      "sha256": "129a21372e14b556797d90b6ef0dd00af5bf2c565db1fde653423131ffc87772",
+      "bytes": 19493
+    },
+    "models/semantic/selector.onnx": {
+      "sha256": "b4d53610dc6b95e9f994a371dcc2cd8c24777e28ae56c3720d9d6eebeb1688f2",
+      "bytes": 153300336
+    },
+    "models/semantic/tokenizer/tokenizer.json": {
+      "sha256": "7dfbf1966ebf99d471c3796e9b457329d2b2182b817e144f1e904b957745c839",
+      "bytes": 439124
+    },
+    "models/expression/catalog.json": {
+      "sha256": "e8eb061eb8507f4c8047b3ba6dea4e22645d349ddb685b5590e7e65548ff45e5",
+      "bytes": 52304
+    },
+    "models/expression/curves.f32": {
+      "sha256": "b75515de64a1b9195985353b5a55e36eaf4d32dcb58fc32548ff570e205f9cb9",
+      "bytes": 13495800
+    },
+    "assets/reference-face/avatar.json": {
+      "sha256": "198d45ef15c79a73835634ecbd2cbc3a4b9af325f72a30a9f29cae3a9f59c412",
+      "bytes": 57013
+    },
+    "assets/reference-face/channels.json": {
+      "sha256": "62facde84cf57fb1456d5250e4ea6938d96a2b8340efc2feec1d155f59180fb9",
+      "bytes": 19494
+    },
+    "assets/reference-face/face_texture_0.png": {
+      "sha256": "8459089e8c57d7f053492b59d1ac39f5e5cc9e87005bc7a31c019affe6e1ba6c",
+      "bytes": 565548
+    },
+    "assets/reference-face/geometry.buffer.json": {
+      "sha256": "412304e58c37a12de02fba5341dab15a8ec8d51806273490baf57805fa13f337",
+      "bytes": 13894996
+    },
+    "assets/reference-face/reference.json": {
+      "sha256": "5a277c4f80405c1c0e2bbe312934cea74ce0fda6635c3a6e63fd70094d038ed3",
+      "bytes": 302
+    }
+  },
+  "release_files": [
+    "README.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    ".gitignore",
+    "requirements.txt",
+    "server.py",
+    "start_preview.bat",
+    "start_preview.sh",
+    "install_semantic.bat",
+    "install_semantic.sh",
+    "release-manifest.json",
+    "docs/BOUNDARIES.md",
+    "docs/FORMAT.md",
+    "docs/API.md",
+    "licenses/three-MIT.txt",
+    "preview/index.html",
+    "preview/preview.css",
+    "preview/app.js",
+    "preview/assets.js",
+    "preview/curve-player.js",
+    "preview/reference-view.js",
+    "preview/three.module.js",
+    "assets/reference-face/ASSET_NOTICE.md",
+    "assets/reference-face/avatar.json",
+    "assets/reference-face/channels.json",
+    "assets/reference-face/face_texture_0.png",
+    "assets/reference-face/geometry.buffer.json",
+    "assets/reference-face/reference.json",
+    "models/ASSET_NOTICE.md",
+    "models/expression/catalog.json",
+    "models/expression/curves.f32",
+    "models/semantic/config.json",
+    "models/semantic/selector.onnx",
+    "models/semantic/tokenizer/tokenizer.json",
+    "download_assets.py",
+    "download_assets.bat",
+    "download_assets.sh",
+    "prepare_release.py",
+    "preview/chat-director.js",
+    "docs/RELEASING.md",
+    "docs/HUGGINGFACE_CARD.md",
+    "tests/test_distribution.py",
+    "docs/ADAPTING_YOUR_MODEL.md",
+    "licenses/Apache-2.0.txt",
+    "licenses/CC-BY-4.0.txt",
+    "licenses/CC-BY-NC-4.0.txt"
+  ],
+  "runtime": "independent reference renderer with basic camera gaze, head idle, linear curve sampling and neutral return crossfades",
+  "distribution_status": "GitHub source prepared; Hugging Face resources and upstream license review pending; archives not rebuilt",
+  "reference_calibration_ui": false,
+  "reference_role": "single facial reference shown in the local dashboard; shape-key adaptation is performed by users in Blender",
+  "distribution": {
+    "github": {
+      "repo_id": "AaBb-coder/LumenAct",
+      "url": "https://github.com/AaBb-coder/LumenAct",
+      "payloads_in_git": false,
+      "source_archive": "lumenact-local-preview-source.zip"
+    },
+    "huggingface": {
+      "repo_id": "",
+      "revision": "",
+      "repo_type": "model",
+      "resource_archive": "lumenact-local-preview-huggingface.zip"
+    },
+    "full_archive": "lumenact-local-preview.zip",
+    "resource_license": {
+      "status": "owner-selected; upstream provenance and license review pending",
+      "models": "models/ASSET_NOTICE.md",
+      "reference_face": "assets/reference-face/ASSET_NOTICE.md",
+      "selected_licenses": {
+        "reference_code_and_docs": "MIT",
+        "semantic_derived_weights": "Apache-2.0",
+        "owned_expression_data": "CC-BY-4.0",
+        "owned_reference_face": "CC-BY-NC-4.0"
+      },
+      "semantic_weights_status": "intended license only; not granted pending upstream review",
+      "tokenizer_status": "original upstream license; provenance review pending",
+      "reference_face_commercial_use": "original rights holder or separate explicit commercial authorization only",
+      "license_files": [
+        "licenses/Apache-2.0.txt",
+        "licenses/CC-BY-4.0.txt",
+        "licenses/CC-BY-NC-4.0.txt"
+      ]
+    }
+  }
+}
