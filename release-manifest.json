@@ -118,7 +118,7 @@
     "licenses/CC-BY-NC-4.0.txt"
   ],
   "runtime": "independent reference renderer with basic camera gaze, head idle, linear curve sampling and neutral return crossfades",
-  "distribution_status": "GitHub source published; Hugging Face resources uploaded as private draft; upstream license review and Blender reference export pending; archives not rebuilt",
+  "distribution_status": "GitHub source published; Hugging Face resources publicly released; Blender shape-key reference export pending; archives not rebuilt",
   "reference_calibration_ui": false,
   "reference_role": "single facial reference shown in the local dashboard; shape-key adaptation is performed by users in Blender",
   "distribution": {
@@ -130,24 +130,24 @@
     },
     "huggingface": {
       "repo_id": "AaBbcoder/LumenAct",
-      "revision": "f0abfedef7aa55a4eb8ddc276a4687e668a4eb95",
+      "revision": "a25bab58a259cb3d24fd27ef896467451ca5d6d1",
       "repo_type": "model",
       "resource_archive": "lumenact-local-preview-huggingface.zip"
     },
     "full_archive": "lumenact-local-preview.zip",
     "resource_license": {
-      "status": "owner-selected; upstream provenance and license review pending",
+      "status": "owner-confirmed resource scopes; Blender shape-key reference export pending",
       "models": "models/ASSET_NOTICE.md",
       "reference_face": "assets/reference-face/ASSET_NOTICE.md",
       "selected_licenses": {
         "reference_code_and_docs": "MIT",
-        "semantic_derived_weights": "Apache-2.0",
+        "semantic_derived_weights": "Apache-2.0; self-trained RBT3-Lumen-38M-v6",
         "owned_expression_data": "CC-BY-4.0",
         "owned_reference_face": "CC-BY-NC-4.0"
       },
-      "semantic_weights_status": "intended license only; not granted pending upstream review",
-      "tokenizer_status": "original upstream license; provenance review pending",
-      "reference_face_commercial_use": "original rights holder or separate explicit commercial authorization only",
+      "semantic_weights_status": "self-trained by B站 Lumen_流明_; Apache-2.0",
+      "tokenizer_status": "released as the semantic model's accompanying tokenizer",
+      "reference_face_commercial_use": "CC BY-NC 4.0; original creator ぷらすわん and separately authorized commercial rights remain respected",
       "license_files": [
         "licenses/Apache-2.0.txt",
         "licenses/CC-BY-4.0.txt",

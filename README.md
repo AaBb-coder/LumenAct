@@ -2,7 +2,9 @@
 
 这个包是 **LumenAct 表情模型套组的本地展示页**。它只内置一个流明脸部，用来让使用者看到公开的语义选择和表演曲线效果。页面采用流明当前宣传网页的单角色仪表盘布局，不提供 Unity、Motive 或主工程依赖。
 
-源码仓库：[AaBb-coder/LumenAct](https://github.com/AaBb-coder/LumenAct)。预览器源码和文档已发布；配套资源已上传至 [Hugging Face 私有预发布仓库](https://huggingface.co/AaBbcoder/LumenAct)，尚未公开，完整即用包也尚未发布。仅下载 GitHub 源码暂不能启动模型预览。
+源码仓库：[AaBb-coder/LumenAct](https://github.com/AaBb-coder/LumenAct)。预览器源码和文档已发布；配套资源位于 [Hugging Face 资源仓库](https://huggingface.co/AaBbcoder/LumenAct)。完整即用包和带形态键的 Blender 参考脸会在资源整理完成后补充。仅下载 GitHub 源码暂不能启动模型预览。
+
+项目作者：**B站 Lumen_流明_**。流明参考脸的基础网格由 **ぷらすわん** 制作，项目已取得相应商业使用许可；参考脸资源仍按 CC BY-NC 4.0 单独授权。
 
 ## 当前阶段
 
@@ -24,7 +26,7 @@ LumenAct 仍处于持续补充表演素材、训练与评估的早期阶段。�
 如果下载的是 GitHub 源码，需要先取得匹配的 Hugging Face 资源。资源目前为私有预发布草稿，以下命令供资源公开后使用：
 
 ```sh
-python download_assets.py --repo AaBbcoder/LumenAct --revision f0abfedef7aa55a4eb8ddc276a4687e668a4eb95
+python download_assets.py --repo AaBbcoder/LumenAct --revision a25bab58a259cb3d24fd27ef896467451ca5d6d1
 ```
 
 发布清单已固定上述资源提交；资源公开后也可直接运行 `python download_assets.py`，省略两个参数。仓库仍为私有时，下载器无法匿名获取资源，不会读取开发机凭据。下载器只使用 Python 标准库，会校验大小和 SHA-256，跳过完整文件；下载失败不会覆盖原文件。Windows 也可用 `download_assets.bat`，macOS / Linux 用 `sh download_assets.sh`。`python download_assets.py --check` 可在离线状态检查资源完整性。
