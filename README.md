@@ -8,30 +8,89 @@
 
 本仓库公开的是可独立运行的核心预览、接口和适配参考部分，便于使用者了解表情模型套组并进行角色适配。完整项目中的部分生产运行时、内部训练流程和持续研发中的实现未纳入本次开源发布，后续会根据整理进度逐步补充公开内容。
 
-## 当前阶段
+## 第一次使用：如何打开 LumenAct
 
-LumenAct 仍处于持续补充表演素材、训练与评估的早期阶段。受当前素材覆盖范围影响，初期版本在部分输入下可能呈现接近 Motion Matching（动作匹配）的观感：相近的情绪描述容易呈现相似的表演，细微语义差异和自由组合的表现还有提升空间。
+这是在自己电脑上启动的网页预览器：**先启动本地服务，再用浏览器打开页面。** 只看预览不需要安装 Unity、Motive 或 Blender；需要 Python 3.10+ 和支持 WebGL2 的桌面浏览器。Blender 用于后文介绍的角色适配。
 
-当前公开预览由语义模型选择情绪类别与上下文，再驱动对应的表演曲线。上面的类比描述的是观看感受，并不表示本包采用了标准 Motion Matching 算法。我们正在持续扩充素材与训练覆盖，也欢迎通过流明表情工坊参与素材制作，一起丰富角色的表达。
+**首次使用的顺序是：下载并解压源码 → 下载模型资源 → 安装依赖 → 启动预览。** GitHub 提供代码，Hugging Face 提供配套模型和脸部资源；下面的下载脚本会自动把资源放到正确位置，无需手工拼装两个仓库。
 
-## 开始
+### Windows：按顺序操作
 
-需要 Python 3.10+ 和支持 WebGL2 的桌面浏览器。
+1. **安装 Python。** 前往 [Python 官网](https://www.python.org/downloads/) 安装 Python 3.10 或以上版本，Windows 建议使用 64 位 Python 3.11 / 3.12。安装时勾选 **Add Python to PATH**，并保留 pip。
+2. **下载并解压项目。** 打开 [GitHub 仓库](https://github.com/AaBb-coder/LumenAct)，点击绿色 **Code → Download ZIP**，将整个压缩包解压到本地文件夹。进入能看到 `README.md`、`server.py` 和几个 `.bat` 文件的目录；以下操作都在这个目录中进行。请先完整解压，再运行文件。
+3. **下载模型资源。** 双击 `download_assets.bat`，等待下载和校验完成。首次需要联网访问 Hugging Face；资源已公开，无需登录或填写 Hugging Face Token。看到 `Assets downloaded and verified. You can start the preview.`，或提示资源已经完整，表示这一步成功。
+4. **安装运行依赖。** 双击 `install_semantic.bat`，等待 numpy、onnxruntime、tokenizers 安装完成。首次安装需要联网；如果出现安装错误，先解决错误再继续。
+5. **启动预览。** 双击 `start_preview.bat`，浏览器会自动打开 <http://127.0.0.1:8766/preview/>。如果没有自动打开，手动复制该地址到浏览器。**使用期间保持启动的命令窗口打开**，关闭窗口会停止本地服务。
+6. **按需开启对话和语音。** 先确认能看到流明参考脸，再展开页面底部的“LLM / TTS 配置”。要聊天，需要填写自己可用的 LLM Endpoint、模型名和 API Key；要播放语音，再配置 TTS。只查看脸部和初始自然表演，无需配置这两项服务。
 
-- Windows：双击 `start_preview.bat`。
-- macOS / Linux：运行 `sh start_preview.sh`。
-- 默认地址：<http://127.0.0.1:8766/preview/>。
-- 更换端口：`python server.py --port 8767`。
+**以后再次使用：** 资源和依赖安装成功后，通常只需双击 `start_preview.bat`。直接双击 `preview/index.html` 无法完成本地服务的启动。
 
-完整即用包将包含权重、分词器、脸部和表演曲线。取得配套资源后，首次使用本地语义模型时，运行 `install_semantic.bat` 或 `sh install_semantic.sh` 安装三个 Python 依赖，随后推理不需要再下载模型。没有安装推理依赖时，页面仍可以显示流明脸部和初始的自然放松表演。
+### 不熟悉部署？可以让 AI 辅助
 
-如果下载的是 GitHub 源码，需要先取得匹配的 Hugging Face 资源。资源仓库已经公开，以下命令可直接下载：
+可以让能访问本机文件并执行终端命令的 AI 编程助手，在解压后的项目目录中协助安装和启动。普通聊天 AI 也可以解释步骤，但需要你自己执行命令。将下面的内容复制给 AI，并填上实际的项目目录和操作系统：
+
+```text
+请帮我在本机部署并启动 LumenAct 本地预览器。
+项目地址：https://github.com/AaBb-coder/LumenAct
+我的项目目录：<填写解压后的绝对路径>
+我的操作系统：<Windows / macOS / Linux>
+
+请先阅读项目 README.md、requirements.txt 和 release-manifest.json，
+按项目现有方式完成以下步骤：
+1. 检查 Python 版本和 pip。项目要求 Python 3.10+；缺少时指导我安装。
+2. 运行 download_assets.py，按发布清单下载并校验匹配的公开资源。
+3. 用同一个 Python 解释器安装 requirements.txt，并运行 server.py。
+   如使用虚拟环境，请始终使用该环境的解释器，避免安装与启动环境不一致。
+4. 告诉我本地访问地址，并帮助我确认浏览器能显示流明参考脸。
+   保持服务运行，并说明以后如何启动和停止。
+5. 如有报错，根据实际报错定位 Python、依赖、资源下载或端口问题，
+   保留资源校验，不要为了启动而跳过校验或修改核心模型逻辑。
+
+先完成本地脸部预览，再指导我在网页中配置自己的 LLM / TTS。
+如需 API Key，提醒我直接在本地网页中填写。
+```
+
+向 AI 求助时，可以提供**操作系统、Python 版本、失败的步骤和完整报错**，注意遮去密钥。仅提供“打不开”较难判断问题出在哪一步。
+
+### macOS / Linux
+
+安装 Python 3.10+ 后，在解压后的项目目录打开终端，依次运行：
+
+```sh
+python3 -m venv .venv
+. .venv/bin/activate
+python download_assets.py
+python -m pip install -r requirements.txt
+python server.py
+```
+
+浏览器访问 <http://127.0.0.1:8766/preview/>。以后重新打开终端时，先进入项目目录并激活 `.venv`，再运行 `python server.py`；在服务终端按 `Ctrl+C` 停止。
+
+### 常见启动问题
+
+| 现象 | 处理方式 |
+| --- | --- |
+| 提示找不到 `python` 或 `py` | 安装 Python 并启用 PATH；安装后重新打开终端或启动脚本。 |
+| 提示缺少资源或资源大小不符 | 在同一个项目目录运行 `download_assets.bat` 或 `python download_assets.py`，等待下载和校验成功。 |
+| Hugging Face 下载失败 | 检查本机到 Hugging Face 的网络连接，再重试下载脚本；完整文件会自动跳过。 |
+| 页面能显示脸部，但语义模型未就绪 | 安装 `requirements.txt` 中的依赖后重启服务；确认安装依赖与启动服务使用同一个 Python 环境。 |
+| 浏览器提示“拒绝连接” | 查看启动窗口中的错误，确认服务仍在运行，并使用窗口打印的访问地址。 |
+| 提示端口 8766 不可用 | 在项目目录运行 `python server.py --port 8767`，再访问 `http://127.0.0.1:8767/preview/`。 |
+| 能看到脸部，但聊天没有回复或没有语音 | 分别检查自己的 LLM / TTS 服务配置；这两项需要使用者提供可用服务。 |
+
+下载器从 `release-manifest.json` 读取匹配的 Hugging Face 资源版本，默认运行 `python download_assets.py` 即可。当前固定资源提交为 `df8126a2a854735227ec81b7f12ab62d49a6d989`，也可显式指定：
 
 ```sh
 python download_assets.py --repo AaBbcoder/LumenAct --revision df8126a2a854735227ec81b7f12ab62d49a6d989
 ```
 
-发布清单已固定上述资源提交；资源公开后也可直接运行 `python download_assets.py`，省略两个参数。仓库仍为私有时，下载器无法匿名获取资源，不会读取开发机凭据。下载器只使用 Python 标准库，会校验大小和 SHA-256，跳过完整文件；下载失败不会覆盖原文件。Windows 也可用 `download_assets.bat`，macOS / Linux 用 `sh download_assets.sh`。`python download_assets.py --check` 可在离线状态检查资源完整性。
+下载器只使用 Python 标准库，会校验大小和 SHA-256，跳过完整文件；下载失败不会覆盖原文件。`python download_assets.py --check` 可在离线状态检查资源完整性。
+
+## 当前阶段
+
+LumenAct 仍处于持续补充表演素材、训练与评估的早期阶段。受当前素材覆盖范围影响，初期版本在部分输入下可能呈现接近 Motion Matching（动作匹配）的观感：相近的情绪描述容易呈现相似的表演，细微语义差异和自由组合的表现还有提升空间。
+
+当前公开预览由语义模型选择情绪类别与上下文，再驱动对应的表演曲线。上面的类比描述的是观看感受，并不表示本包采用了标准 Motion Matching 算法。我们正在持续扩充素材与训练覆盖，也欢迎通过流明表情工坊参与素材制作，一起丰富角色的表达。
 
 ## 页面能做什么
 
